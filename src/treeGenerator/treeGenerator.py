@@ -10,12 +10,18 @@ class TreeGenerator:
         self._pipe = '|'
         self._tee = '|-'
         self._elbow = '|_'
+        self.generate()
     
     def generate(self):
         self.paths.extend(self._crawl(self.startingDir))
         clear()
+        self._dropParents()
         self._generateTree()
         self._generateTreeString()
+    
+    def _dropParents(self):
+        self.paths = [Path(str(path)[str(path).find(self.startingDir.stem):])
+                      for path in self.paths]
     
     def __str__(self):
         return f'{self.treeString}'
