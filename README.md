@@ -1,6 +1,7 @@
 # treeGenerator<br>
-Install with <pre>python -m pip install git+https://github.com/matt-manes/treegenerator</pre><br>
+Install with <pre>python -m pip install git+https://github.com/matt-manes/treegenerator</pre>
 Git needs to be installed and in your PATH.<br>
+<br>
 Contains two classes: TreeGenerator and UrlTreeGenerator.<br>
 TreeGenerator takes a local file path and recursively generates a tree representation of all subdirectories.<br>
 UrlTreeGenerator takes a list of urls and generates a tree representation of them.<br>
