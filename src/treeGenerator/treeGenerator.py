@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from printBuddies import clear, printInPlace
+from printBuddies import ProgBar, clear, printInPlace
 
 
 class TreeGenerator:
@@ -47,6 +47,8 @@ class TreeGenerator:
     def _generateTree(self):
         """Generate nested dictionary of subdirectories."""
         self.tree = {}
+        progBar = ProgBar(len(self.paths))
+        progBar.display()
         for path in sorted(self.paths):
             if path.parts[0] not in self.tree:
                 self.tree[path.parts[0]] = {}
@@ -56,6 +58,7 @@ class TreeGenerator:
                 if branch not in currentLayer:
                     currentLayer[branch] = {}
                 currentLayer = currentLayer[branch]
+            progBar.display()
 
     def _formatBranchName(self, branchName: str, index: int) -> str:
         if index == 0:
